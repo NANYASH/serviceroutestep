@@ -14,6 +14,9 @@ public class Controller {
     @Autowired
     private Service service;
 
+    public Controller() {
+    }
+
 
     @RequestMapping(method = RequestMethod.GET, value = "/call", produces = "text/plain")
     public @ResponseBody

@@ -10,6 +10,10 @@ public class Route {
     @Autowired
     private List<Step> steps;
 
+    public Route(String id) {
+        this.id = id;
+    }
+
     public String getId() {
         return id;
     }

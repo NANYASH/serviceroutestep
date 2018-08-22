@@ -14,6 +14,10 @@ public class Step {
     private Map paramServiceFrom;
     private Map getParamServiceTo;
 
+    public Step(Long id) {
+        this.id = id;
+    }
+
     public Long getId() {
         return id;
     }
