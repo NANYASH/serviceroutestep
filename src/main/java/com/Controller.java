@@ -1,8 +1,13 @@
 package com;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class Controller {
+    @Autowired
     private Route route;
+    @Autowired
     private Step step;
+    @Autowired
     private Service service;
 
 

@@ -2,6 +2,7 @@ package com;
 
 
 
+
 import java.util.List;
 
 
@@ -21,7 +22,7 @@ public class Route {
         return steps;
     }
 
-    public void setSteps(List<Step> steps) {
+    public void setSteps(List steps) {
         this.steps = steps;
     }
 }
