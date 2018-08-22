@@ -1,6 +1,7 @@
 package com;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -9,14 +10,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class Controller {
     @Autowired
     private Route route;
+    @Qualifier("Step")
     @Autowired
     private Step step;
+    @Qualifier("Service")
     @Autowired
     private Service service;
-
-    public Controller() {
-    }
-
 
     @RequestMapping(method = RequestMethod.GET, value = "/call", produces = "text/plain")
     public @ResponseBody
@@ -25,7 +24,7 @@ public class Controller {
         route.getSteps();
 
         step.getId();
-        step.getGetParamServiceTo();
+        step.getParamServiceTo();
         step.getParamServiceFrom();
         step.getServiceFrom();
         step.getServiceTo();

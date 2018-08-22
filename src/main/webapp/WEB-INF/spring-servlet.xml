@@ -3,23 +3,108 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+       http://www.springframework.org/schema/context/spring-context-4.1.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <context:component-scan base-package ="com"/>
 
     <bean id="Route" class="com.Route">
         <constructor-arg name="id" value="1"/>
+        <property name="steps">
+                <util:list id="steps" list-class="java.util.ArrayList">
+
+                    <bean class="com.Step">
+                        <constructor-arg name="id" value="1"/>
+                        <property name="serviceFrom">
+                            <bean class="com.Service">
+                                <constructor-arg name="id" value="2"/>
+                                <constructor-arg name="name" value="ServiceInStepList1"/>
+                            </bean>
+                        </property>
+                        <property name="serviceTo">
+                            <bean class="com.Service">
+                                <constructor-arg name="id" value="2"/>
+                                <constructor-arg name="name" value="ServiceInStepList2"/>
+                            </bean>
+                        </property>
+                    </bean>
+
+                    <bean class="com.Step">
+                        <constructor-arg name="id" value="2"/>
+                        <property name="serviceFrom">
+                            <bean class="com.Service">
+                                <constructor-arg name="id" value="2"/>
+                                <constructor-arg name="name" value="ServiceInStepList3"/>
+                            </bean>
+                        </property>
+                        <property name="serviceTo">
+                            <bean class="com.Service">
+                                <constructor-arg name="id" value="2"/>
+                                <constructor-arg name="name" value="ServiceInStepList4"/>
+                            </bean>
+                        </property>
+                    </bean>
+
+                </util:list>
+        </property>
     </bean>
+
+
     <bean id="Service" class="com.Service">
         <constructor-arg name="id" value="2"/>
         <constructor-arg name="name" value="test"/>
+
+    </bean>
+
+    <bean id="serviceFrom" class="com.Service">
+        <constructor-arg name="id" value="2"/>
+        <constructor-arg name="name" value="testFrom"/>
+    </bean>
+
+    <bean id="serviceTo" class="com.Service">
+        <constructor-arg name="id" value="3"/>
+        <constructor-arg name="name" value="testTo"/>
     </bean>
 
     <bean id="Step" class="com.Step">
         <constructor-arg name="id" value="3"/>
     </bean>
+
+
+   <!-- <constructor-arg type="com.Service">
+        <bean class="com.Service">
+            <constructor-arg name="id" value="2"/>
+            <constructor-arg name="name" value="testFrom"/>
+        </bean>
+    </constructor-arg>-->
+
+   <!-- <constructor-arg type="com.Service">
+        <util:list id="steps" list-class="java.util.ArrayList">
+            <bean class="com.Step">
+                <constructor-arg name="id" value="1"/>
+                <constructor-arg type="com.Service">
+                    <bean class="com.Service">
+                        <constructor-arg name="id" value="2"/>
+                        <constructor-arg name="name" value="testFrom"/>
+                    </bean>
+                </constructor-arg>
+            </bean>
+            <bean class="com.Step">
+                <constructor-arg name="id" value="2"/>
+                <constructor-arg type="com.Service">
+                    <bean class="com.Service">
+                        <constructor-arg name="id" value="2"/>
+                        <constructor-arg name="name" value="testFrom"/>
+                    </bean>
+                </constructor-arg>
+            </bean>
+        </util:list>
+    </constructor-arg>-->
+
+
+
 
 </beans>

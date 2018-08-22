@@ -12,7 +12,7 @@ public class Step {
     @Autowired
     private Service serviceTo;
     private Map paramServiceFrom;
-    private Map getParamServiceTo;
+    private Map paramServiceTo;
 
     public Step(Long id) {
         this.id = id;
@@ -50,12 +50,12 @@ public class Step {
         this.paramServiceFrom = paramServiceFrom;
     }
 
-    public Map getGetParamServiceTo() {
-        return getParamServiceTo;
+    public Map getParamServiceTo() {
+        return paramServiceTo;
     }
 
-    public void setGetParamServiceTo(Map getParamServiceTo) {
-        this.getParamServiceTo = getParamServiceTo;
+    public void setParamServiceTo(Map paramServiceTo) {
+        this.paramServiceTo = paramServiceTo;
     }
 
     @Override
@@ -65,7 +65,7 @@ public class Step {
                 ", serviceFrom=" + serviceFrom +
                 ", serviceTo=" + serviceTo +
                 ", paramServiceFrom=" + paramServiceFrom +
-                ", getParamServiceTo=" + getParamServiceTo +
+                ", paramServiceTo=" + paramServiceTo +
                 '}';
     }
 }
