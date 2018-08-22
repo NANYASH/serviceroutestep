@@ -30,4 +30,13 @@ public class Service {
     public void setParamsToCall(List paramsToCall) {
         this.paramsToCall = paramsToCall;
     }
+
+    @Override
+    public String toString() {
+        return "Service{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", paramsToCall=" + paramsToCall +
+                '}';
+    }
 }

@@ -1,14 +1,14 @@
 package com;
 
-
-
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 
 public class Route {
     private String id;
-    private List steps;
+    @Autowired
+    private List<Step> steps;
 
     public String getId() {
         return id;
@@ -18,11 +18,19 @@ public class Route {
         this.id = id;
     }
 
-    public List getSteps() {
+    public List<Step> getSteps() {
         return steps;
     }
 
-    public void setSteps(List steps) {
+    public void setSteps(List<Step> steps) {
         this.steps = steps;
+    }
+
+    @Override
+    public String toString() {
+        return "Route{" +
+                "id='" + id + '\'' +
+                ", steps=" + steps +
+                '}';
     }
 }

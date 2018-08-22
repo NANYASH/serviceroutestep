@@ -1,7 +1,11 @@
 package com;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+@org.springframework.stereotype.Controller
 public class Controller {
     @Autowired
     private Route route;
@@ -11,7 +15,9 @@ public class Controller {
     private Service service;
 
 
-    public void callByBean(){
+    @RequestMapping(method = RequestMethod.GET, value = "/call", produces = "text/plain")
+    public @ResponseBody
+    void callByBean(){
         route.getId();
         route.getSteps();
 
@@ -24,10 +30,6 @@ public class Controller {
         service.getId();
         service.getName();
         service.getParamsToCall();
-
-
-
-
 
     }
 }

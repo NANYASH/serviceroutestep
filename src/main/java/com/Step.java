@@ -1,11 +1,15 @@
 package com;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.Map;
 
 public class Step {
     private Long id;
+    @Autowired
     private Service serviceFrom;
+    @Autowired
     private Service serviceTo;
     private Map paramServiceFrom;
     private Map getParamServiceTo;
@@ -48,5 +52,16 @@ public class Step {
 
     public void setGetParamServiceTo(Map getParamServiceTo) {
         this.getParamServiceTo = getParamServiceTo;
+    }
+
+    @Override
+    public String toString() {
+        return "Step{" +
+                "id=" + id +
+                ", serviceFrom=" + serviceFrom +
+                ", serviceTo=" + serviceTo +
+                ", paramServiceFrom=" + paramServiceFrom +
+                ", getParamServiceTo=" + getParamServiceTo +
+                '}';
     }
 }
